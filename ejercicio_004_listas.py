@@ -34,5 +34,43 @@ print(not 'Sábado' in dias_diario) # True
 print(len(dias_diario))
 
 # List comprehension (comprensión de listas)
+dias_diario = ['Luns', 'Martes', 'Mércores', 'Xoves', 'Venres']
+
+# Obtener una lista con las longitudes de los días
 longitudes = [len(dia) for dia in dias_diario]
 print(longitudes)
+
+# Obtener una lista con los días de la semana convertidos a mayúsculas
+# Versión 'clásica'
+dias_mayusculas = []
+for dia in dias_diario:
+    dias_mayusculas.append(dia.upper())
+
+# Versión 'list comprehension'
+dias_mayusculas = [dia.upper() for dia in dias_diario]
+print(dias_mayusculas)
+
+# Obtener una lista con los tres primeros caracteres de cada día
+dias_mayusculas = [dia[0:3] for dia in dias_diario]
+print(dias_mayusculas)
+
+# Censurar los elementos de una lista (calamidad y feo)
+frase = 'Eres un calamidad y además eres feo'
+lista_palabras = frase.split(' ')
+
+def censurar(palabra):
+    if palabra=='calamidad' or palabra=='feo':
+        return '***'
+    else:
+        return palabra
+
+lista_palabras_censuradas = [censurar(palabra) for palabra in lista_palabras]
+frase_censurada = ' '.join(lista_palabras_censuradas)
+print(frase_censurada)
+
+# Obtener una lista equivalente a dias_diario con el formato ***nombre_dia*** en minúscula
+dias_diario = ['Luns', 'Martes', 'Mércores', 'Xoves', 'Venres']
+
+# '***luns***','***martes***'...
+
+

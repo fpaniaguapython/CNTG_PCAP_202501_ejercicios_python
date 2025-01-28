@@ -66,11 +66,36 @@ def censurar(palabra):
 
 lista_palabras_censuradas = [censurar(palabra) for palabra in lista_palabras]
 frase_censurada = ' '.join(lista_palabras_censuradas)
-print(frase_censurada)
+print(frase_censurada) # Eres un *** y además eres ***
 
 # Obtener una lista equivalente a dias_diario con el formato ***nombre_dia*** en minúscula
 dias_diario = ['Luns', 'Martes', 'Mércores', 'Xoves', 'Venres']
 
-# '***luns***','***martes***'...
+dias_minusculas = ['***'+dia.lower()+'***' for dia in dias_diario]
+print(dias_minusculas) # ['***luns***', '***martes***', '***mércores***', '***xoves***', '***venres***']
 
+# Comprensión de listas con condición
+dias_diario = ['Luns', 'Martes', 'Mércores', 'Xoves', 'Venres']
 
+# if
+dias_con_e = [dia for dia in dias_diario if 'e' in dia]
+print(dias_con_e) # ['Martes', 'Mércores', 'Xoves', 'Venres']
+
+# if-else
+dias_con_r = [dia if ('r' in dia) else '***' for dia in dias_diario]
+print(dias_con_r) # ['***', 'Martes', 'Mércores', '***', 'Venres']
+
+# slice - notación abreviada
+print(dias_diario[0:len(dias_diario)]) # Desde el primero hasta el último
+print(dias_diario[:]) # Desde el primero hasta el último
+print(dias_diario[0:3]) # Tres primeros
+print(dias_diario[:3]) # Tres primeros
+print(dias_diario[3:]) # ['Xoves', 'Venres']
+print(dias_diario[len(dias_diario)-2:]) # 2 últimos ['Xoves', 'Venres']
+print(dias_diario[-2:]) # 2 últimos ['Xoves', 'Venres']
+print(dias_diario[::2]) # Cada dos elementos ['Luns', 'Mércores', 'Venres']
+
+# slice - notación 'extendida'
+corte = slice(1,2)
+print(type(corte)) # <class 'slice'>
+print(dias_diario[corte])# ['Martes']

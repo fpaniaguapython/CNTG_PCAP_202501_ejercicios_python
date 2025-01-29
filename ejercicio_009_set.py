@@ -1,3 +1,5 @@
+dict_vacio = {} # NO ES UN SET, es un dict
+set_vacio = set() # set vacío
 frutas_verano = {'Sandía', 'Melón', 'Uva','Sandía'}
 frutas_invierno = set(['Naranja','Piña','Naranja','Uva'])
 print(type(frutas_verano)) # <class 'set'>

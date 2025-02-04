@@ -4,7 +4,8 @@
 
 from Levenshtein import distance
 
-palabras = [
+def get_palabras():
+    return [
     "manzana", "libro", "cielo", "auto", "pelota", "viento", "feliz", "computadora", "agua", "fuego",
     "rojo", "verde", "amarillo", "flor", "estrella", "montaña", "río", "noche", "luz", "sombrero",
     "piedra", "árbol", "camino", "espejo", "ventana", "luna", "sol", "calor", "frío", "nieve",
@@ -21,15 +22,19 @@ palabras = [
     "poder", "valentía", "sabiduría", "prudencia", "justicia", "equilibrio", "armonía", "diversidad", "unidad"
 ]
 
+palabras = get_palabras()
+
 palabra = input('Introduce una palabra:')
 
 # Búsqueda exacta
-existe = palabra.lower() in palabras
-print(existe)
+palabra_encontrada = palabra.lower() in palabras
+print('Palabra buscada:',palabra_encontrada)
 
 # Búsqueda aproximada
 # Versión Xabi
-""" mas_proximo='Nada'
+""" 
+palabras = get_palabras() # Inicializamos la lista de palabras
+mas_proximo='Nada'
 nivel_proximidad = 3
 
 for p in palabras:
@@ -40,15 +45,29 @@ for p in palabras:
 print('La palabra más proxima es:', mas_proximo) """
 
 # Versión Python 1 (utilizando el método sort con lambda)
-if (not existe):
+palabras = get_palabras() # Inicializamos la lista de palabras
+
+if (not palabra_encontrada):
     palabras.sort(key = lambda palabra_actual : distance(palabra, palabra_actual))
     print(f'A lo mejor querías decir {palabras[0]}')
 
 # Versión Python 2 (utilizando el método min con lambda)
-if (not existe):
+palabras = get_palabras() # Inicializamos la lista de palabras
+
+if (not palabra_encontrada):
     palabra_mas_proxima = min(palabras, key = lambda palabra_actual : distance(palabra, palabra_actual))
     print(f'A lo mejor querías decir {palabra_mas_proxima}')
 
 # Versión Python retorcida (convertir la lista en una lista de tuplas con las distancias y las palabras)
+palabras = get_palabras() # Inicializamos la lista de palabras
+
 nueva_lista = [(distance(palabra_actual, palabra),palabra_actual) for palabra_actual in palabras]
 print(sorted(nueva_lista)[0])
+
+# Versión Abel
+palabras = get_palabras() # Inicializamos la lista de palabras
+
+palabra_encontrada = palabra.lower()
+distancias = [distance(palabra_encontrada, palabra_actual)  for palabra_actual in palabras]
+indice = distancias.index(min(distancias))
+print(f'Solución:"{palabras[indice]}"')

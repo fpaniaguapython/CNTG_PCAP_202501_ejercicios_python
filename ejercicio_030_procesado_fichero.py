@@ -1,5 +1,5 @@
-#https://babel.upm.es/~angel/teaching/pps/quijote.txt
-
+# https://babel.upm.es/~angel/teaching/pps/quijote.txt
+# Ojo con las mayúsculas y minúsculas.
 
 # 1. Leer el fichero y guardar el contenido en un variable
 with open('quijote.txt',encoding='utf-8',mode='rt') as fichero:
@@ -33,7 +33,7 @@ print(numero_apareciones)
 personaje = input('Introduce nombre del personaje:')
 personaje_reemplazo = input('Introduce nombre del personaje de reemplazo:')
 import re
-apariciones= re.findall(palabra, texto, re.IGNORECASE)
+apariciones= re.findall(personaje, texto, re.IGNORECASE)
 conjunto_apariciones = set(apariciones)
 nuevo_texto = texto
 for aparicion in conjunto_apariciones:
@@ -44,5 +44,3 @@ for aparicion in conjunto_apariciones:
 
 with open('quijote_modificado.txt',encoding='utf-8',mode='wt') as fichero:
     fichero.write(nuevo_texto)
-
-# Ojo con las mayúsculas y minúsculas.

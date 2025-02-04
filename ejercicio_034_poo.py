@@ -19,3 +19,29 @@ print(sauron.energia) # Acceso a un atributo
 # Crear una clase Impresora que tenga 4 atributos y 2 métodos.
 # Crear dos objetos de la clase impresora 
 # Ejecutar los métodos de las dos impresoras
+
+class Impresora:
+    def __init__(self, marca : str, modelo : str, precio : int, velocidad : int):
+        self.marca = marca
+        self.modelo = modelo
+        self.precio = precio
+        self.velocidad = velocidad
+    
+    def imprimir(self, texto='Por defecto'):
+        print(f'Soy {self.marca}-{self.modelo} y estoy imprimiendo "{texto}"')
+
+    def pitar(self):
+        print(f'Soy {self.marca}-{self.modelo} y estoy pitando')
+
+
+epson = Impresora('Epson', 'Stylus Color', 300, 10)
+hp = Impresora('Hewlett Packard', 'AS330', 450, 80)
+
+epson.imprimir('El texto que quiero imprimir')
+epson.pitar()
+hp.imprimir('Otro texto para imprimir')
+hp.pitar()
+
+    
+
+    

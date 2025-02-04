@@ -22,7 +22,33 @@ palabras = [
 ]
 
 palabra = input('Introduce una palabra:')
+
+# Búsqueda exacta
 existe = palabra.lower() in palabras
 print(existe)
 
-# distance(palabra1, palabra2)
+# Búsqueda aproximada
+# Versión Xabi
+""" mas_proximo='Nada'
+nivel_proximidad = 3
+
+for p in palabras:
+    if (distance(palabra, p) < nivel_proximidad):
+        mas_proximo = p
+        nivel_proximidad = distance(palabra, p)
+
+print('La palabra más proxima es:', mas_proximo) """
+
+# Versión Python 1 (utilizando el método sort con lambda)
+if (not existe):
+    palabras.sort(key = lambda palabra_actual : distance(palabra, palabra_actual))
+    print(f'A lo mejor querías decir {palabras[0]}')
+
+# Versión Python 2 (utilizando el método min con lambda)
+if (not existe):
+    palabra_mas_proxima = min(palabras, key = lambda palabra_actual : distance(palabra, palabra_actual))
+    print(f'A lo mejor querías decir {palabra_mas_proxima}')
+
+# Versión Python retorcida (convertir la lista en una lista de tuplas con las distancias y las palabras)
+nueva_lista = [(distance(palabra_actual, palabra),palabra_actual) for palabra_actual in palabras]
+print(sorted(nueva_lista)[0])

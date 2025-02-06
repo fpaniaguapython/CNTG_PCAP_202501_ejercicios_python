@@ -1,0 +1,19 @@
+A Python package named pypack includes a module named pymod.py which contains a function named pyfun().
+Which of the following snippets will let you invoke the function? (Choose two.)
+
+A. ok
+from pypack.pymod import pyfun 
+pyfun()
+
+B. ko
+import pypack
+pymod.pyfun()
+
+C. ko
+from pypack import *
+pyfun()
+
+D. ok
+import pypack
+import pypack.pymod
+pypack.pymod.pyfun()

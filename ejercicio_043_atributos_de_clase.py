@@ -27,3 +27,4 @@ epson.mostrar_numero_paginas_impresas()
 hp.mostrar_numero_paginas_impresas()
 
 print(Impresora.numero_paginas_totales)
+

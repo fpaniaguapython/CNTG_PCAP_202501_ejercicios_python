@@ -39,7 +39,7 @@ class Automovil(Vehiculo):
         self.numero_ruedas = numero_ruedas
         self.consumo = consumo
     
-    def avanzar(self): #Sobreescritura del métod
+    def avanzar(self): #Sobreescritura del método
         super().avanzar() 
         print(f'Soy el Automovil {self.nombre} y estoy avanzando')
 

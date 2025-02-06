@@ -2,21 +2,23 @@ class ItemFacturable:
     def __init__(self, importe):
         self.importe = importe
 
+
 class Factura:
     def __init__(self, items_facturables):
         self.items_facturables = items_facturables
 
     def __iter__(self):
-        print('__iter__') # Sólo una vez
-        self.__indice=-1
+        print('__iter__')  # Sólo una vez
+        self.__indice = -1
         return self
 
     def __next__(self):
-        print('__next__') # Una vez por cada iteracción
-        self.__indice+=1
-        if (self.__indice==len(self.items_facturables)):
+        print('__next__')  # Una vez por cada iteracción
+        self.__indice += 1
+        if (self.__indice == len(self.items_facturables)):
             raise StopIteration()
         return self.items_facturables[self.__indice]
+
 
 i1 = ItemFacturable(10)
 i2 = ItemFacturable(-5)

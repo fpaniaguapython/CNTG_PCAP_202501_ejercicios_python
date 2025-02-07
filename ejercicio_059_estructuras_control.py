@@ -23,3 +23,4 @@ while(edad<100):
 
 for i in range(100): # Este range va entre 0 y 99 
     if i>95: print(i)
+
